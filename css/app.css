@@ -1,0 +1,30 @@
+body {
+	font-family: 'Roboto Mono', sans-serif;	
+	overflow-x: hidden;
+	color: #999;
+}
+
+h1 {
+	color: #999; 
+	font-weight: 800;
+}
+
+h2, a {
+	color: #999;
+	font-family: 'Roboto Mono', sans-serif;
+	text-decoration: none !important;
+}
+
+
+
+.plan-box {
+	padding: 50px; 
+	border: 1px solid #eee;
+	box-shadow: 0 0 27px 0 rgba(214, 231, 233, 0.52);
+	height: 100%; 
+	cursor: pointer;
+/*	width: 40%;*/
+/*	margin: 40px;*/
+	min-height: 200px;
+}
+
