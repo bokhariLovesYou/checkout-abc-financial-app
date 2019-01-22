@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>OneIMS 2.0</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Custom Styles -->
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/normalize.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">	
+	<!-- Source Sans Pro from Google Fonts -->
+	<!-- for minified version add this -->
+	<!-- Flickity -->
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+	<!-- Font Awesome -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body class="">
+
+<?php 
+// Create a stream
+$opts = array(
+  'http'=>array(
+    'method'=>"GET",
+    'header'=>"app_id: b296df2d\r\n" .
+              "app_key: ff93310d0c0b3d8f7596aaf4dc29d01e\r\n" .
+              "clubNumber: 9003\r\n".
+              "onlyPromoPlans: false\r\n".
+              "inClubPlans: true\r\n".
+              "ignorePlanAvailabilityWindow: false\r\n".
+              "Accept: application/json;charset=utf-8\r\n"
+  )
+);
+
+$context = stream_context_create($opts);
+
+// Open the file using the HTTP headers set above
+$file = file_get_contents('https://api.abcfinancial.com/rest/9003/clubs/plans', false, $context);
+
+echo $file;
+// echo json_encode($file, JSON_PRETTY_PRINT);
+
+?>
+
+
+<!-- JavaScript Files -->
+	<script>
+		document.getElementById('hideAll').style.display = 'block';
+	</script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<!-- 	<script src="js/jquery.parallax.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="js/rellax.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<!-- //Javascript Files End -->
+</body>
+</html>
